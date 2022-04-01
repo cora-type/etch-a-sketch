@@ -25,5 +25,8 @@
   grid-template-rows: repeat(var(--columns-row), 1fr);
   width: 500px;
   height: 500px;
-  column-gap: 1px;
+}
+
+div {
+  border: 1px solid black;
 }
