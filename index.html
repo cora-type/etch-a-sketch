@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>etch-a-sketch.</title>
     <script src="script.js" defer></script>
+    <script src="https://unpkg.com/animate-css-grid@latest"></script>
     <!-- //IMPORTANT, NEVER FORGET DEFER WHEN LOADING DOM SCRIPTS -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,8 +18,19 @@
   </head>
   <body>
     <div class="header">etch a sketch</div>
-    <input id="slider" type="range" min="2" max="64" value="4" />
-    Value: <span id="value"></span>
+    <div id="functionBar">
+      <input
+        id="slider"
+        type="range"
+        min="0"
+        max="64"
+        value="0"
+        oninput="gridMaker()"
+      />
+      Value: <span id="value"></span>
+      <button class="rainbow" type="button">rainbow bridge</button>
+      <button class="pick" type="button">pick a color</button>
+    </div>
     <div id="container"></div>
   </body>
 </html>

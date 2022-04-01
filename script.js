@@ -10,9 +10,10 @@ function removeAllChildNodes(parent) {
   }
 }
 
+// this removes all previous child nodes as to not cause overload
+//fixed overlapping divs error !!!!!! :D
 function gridMaker() {
   if (container.firstChild) {
-    //fixed overlapping divs error !!!!!! :D
     removeAllChildNodes(containerQuery);
   }
 
@@ -27,11 +28,9 @@ function gridMaker() {
     var createDiv = document.createElement("div");
     createDiv.classList.add("cell"); // add class name
     container.appendChild(createDiv); // attach cells under container
-    // createDiv.addEventListener("mouseenter", function () {
-    //   this.style.backgroundColor = "red";
-    // });
+    createDiv.style.border = "1px solid black";
+    createDiv.addEventListener("mouseenter", function () {
+      this.style.backgroundColor = "red";
+    });
   }
 }
-
-const selectElement = document.querySelector("#slider");
-selectElement.addEventListener("change", gridMaker);
