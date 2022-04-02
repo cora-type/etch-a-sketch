@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>etch-a-sketch.</title>
     <script src="script.js" defer></script>
-    <script src="https://unpkg.com/animate-css-grid@latest"></script>
+
     <!-- //IMPORTANT, NEVER FORGET DEFER WHEN LOADING DOM SCRIPTS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,22 +19,33 @@
       href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <!-- 'monolith' theme -->
   </head>
   <body>
     <div class="header">etch a sketch</div>
-    <div id="functionBar">
+    <div class="main">
+      <div id="container"></div>
+    </div>
+
+    <div class="secondaryContainer">
       <input
         id="slider"
         type="range"
         min="0"
-        max="64"
-        value="0"
+        max="100"
+        value="64"
         oninput="gridMaker()"
       />
       Value: <span id="value"></span>
-      <button class="rainbow" type="button">rainbow bridge</button>
-      <button class="pick" type="button">pick a color</button>
+      <button onclick="rainbow()" class="rainbow" type="button">
+        TASTE THE RAINBOW
+      </button>
+      <div class="color-picker"></div>
     </div>
-    <div id="container"></div>
   </body>
 </html>
