@@ -1,17 +1,15 @@
 @font-face {
-  font-family: "Lovelo";
-  src: url(fonts/LoveloB.ttf) format("truetype");
+  font-family: "CodeNext";
+  src: url(fonts/CodeNext.ttf) format("truetype");
   font-weight: normal;
 }
 .header {
   display: flex;
+  font-family: "CodeNext", cursive;
+  font-size: 60px;
+  color: rgb(0, 0, 0);
   align-items: center;
-  justify-content: center;
-  font-family: "Neonderthaw", cursive;
-  font-size: 80px;
-  justify-content: center;
-  align-items: center;
-  color: rgb(171, 12, 12);
+  padding-bottom: 20px;
 }
 
 /* grid css below */

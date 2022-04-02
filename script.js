@@ -73,6 +73,8 @@ let rgbSelector = (input) => {
   }
 };
 
+//PICKR STUFF BELOW HERE
+
 const pickr = Pickr.create({
   el: ".color-picker",
   theme: "classic", // or 'monolith', or 'nano'
