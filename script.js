@@ -43,10 +43,12 @@ function gridMaker() {
     createDiv.classList.add("cell"); // add class name
     container.appendChild(createDiv); // attach cells under container
     createDiv.style.background = "white";
+
     createDiv.addEventListener("mouseenter", function () {
       this.style.backgroundColor = "black";
     });
   }
+  container.classList.add("animate__animated", "animate__shakeX");
 }
 
 //changes color to random RGB when hovering
