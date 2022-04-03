@@ -48,7 +48,13 @@ function gridMaker() {
       this.style.backgroundColor = "black";
     });
   }
+
+  // adds a shake effect to clear grid like the toy
   container.classList.add("animate__animated", "animate__shakeX");
+  // after shake is done animating, remove shake so you can apply it again with each grid reset
+  container.addEventListener("animationend", () => {
+    container.classList.remove("animate__shakeX");
+  });
 }
 
 //changes color to random RGB when hovering
