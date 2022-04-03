@@ -43,7 +43,7 @@ function gridMaker() {
     createDiv.classList.add("cell"); // add class name
     container.appendChild(createDiv); // attach cells under container
     createDiv.style.background = "white";
-
+    createDiv.style.opacity = "1";
     createDiv.addEventListener("mouseenter", function () {
       this.style.backgroundColor = "black";
     });
@@ -62,6 +62,9 @@ let rainbow = () => {
   let children = container.childNodes; // creates an array of all "cell" boxes within the grid container
   for (i = 0; i < children.length; i++) {
     var tableChild = children[i]; // go through each cell
+
+    tableChild.removeEventListener;
+
     tableChild.addEventListener("mouseenter", function () {
       //add hover listener to change to specific color
       this.style.backgroundColor = random_bg_color();
@@ -77,6 +80,17 @@ let rgbSelector = (input) => {
     var tableChild = children[i];
     tableChild.addEventListener("mouseenter", function () {
       this.style.backgroundColor = color;
+    });
+  }
+};
+
+let opacityHover = () => {
+  let children = container.childNodes;
+  for (i = 0; i < children.length; i++) {
+    var tableChild = children[i];
+    // set an opacity value so you can change in eventlistener
+    tableChild.addEventListener("mouseenter", function () {
+      this.style.opacity = this.style.opacity - ".1";
     });
   }
 };
