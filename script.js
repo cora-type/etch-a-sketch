@@ -115,3 +115,5 @@ pickr.on("change", (color, instance) => {
   const rgbaColor = color.toRGBA().toString();
   rgbSelector(rgbaColor);
 });
+
+gridMaker();
