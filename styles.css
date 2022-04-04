@@ -36,7 +36,7 @@ hr {
   grid-template-rows: repeat(var(--columns-row), 1fr);
   width: 600px;
   height: 600px;
-  background-color: lightgray;
+  background-color: transparent;
   gap: 2px;
   border: 1px solid lightgray;
   border-radius: 5px;
