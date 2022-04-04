@@ -73,6 +73,7 @@ let rgbSelector = (input) => {
   for (i = 0; i < children.length; i++) {
     var tableChild = children[i];
     tableChild.addEventListener("mouseenter", function () {
+      this.style.opacity = 1;
       this.style.backgroundColor = color;
     });
   }
@@ -147,33 +148,42 @@ pickr.on("change", (color, instance) => {
 // initial grid to load with fade in animation
 // initial grid to load with fade in animation
 // initial grid to load with fade in animation
+
+let drawing = false;
+
 function gridMaker2() {
   if (container.firstChild) {
     removeAllChildNodes(containerQuery);
   }
-
-  document.getElementById("value").innerText = theSlider.value; //update value shown in HTML
+  document.getElementById("value").innerText = theSlider.value;
   let sliderValue = theSlider.value;
-
-  let squared = sliderValue * sliderValue; // # of boxes in the grid
-
-  document.documentElement.style.setProperty("--columns-row", sliderValue); // columns and rows based on slider input
+  let squared = sliderValue * sliderValue;
+  document.documentElement.style.setProperty("--columns-row", sliderValue);
 
   for (i = 0; i < squared; i++) {
     var createDiv = document.createElement("div");
-    createDiv.classList.add("cell"); // add class name
-    container.appendChild(createDiv); // attach cells under container
+    createDiv.classList.add("cell");
+    container.appendChild(createDiv);
     createDiv.style.background = "white";
     createDiv.style.opacity = "1";
-    createDiv.addEventListener("mouseenter", function () {
+    createDiv.addEventListener("mousedown", function () {
       this.style.backgroundColor = "black";
       this.style.opacity = "1";
+      drawing = true;
+    });
+    createDiv.addEventListener("mouseover", function () {
+      if (drawing === true) {
+        this.style.backgroundColor = "black";
+        this.style.opacity = "1";
+      }
+    });
+    createDiv.addEventListener("mouseup", (g) => {
+      if (drawing === true) {
+        drawing = false;
+      }
     });
   }
-
-  // adds a shake effect to clear grid like the toy
   container.classList.add("animate__animated", "animate__fadeInLeft");
-  // after shake is done animating, remove shake so you can apply it again with each grid reset
   container.addEventListener("animationend", () => {
     container.classList.remove("animate__animated", "animate__fadeInLeft");
   });
@@ -181,3 +191,8 @@ function gridMaker2() {
 window.addEventListener("DOMContentLoaded", (event) => {
   gridMaker2();
 });
+
+let headerRainbow = () => {
+  let a = document.querySelector("body");
+  a.style.animation = "color-change 5s infinite";
+};

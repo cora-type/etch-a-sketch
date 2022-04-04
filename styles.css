@@ -9,6 +9,8 @@
   font-size: 60px;
   color: rgb(0, 0, 0);
   align-items: center;
+  animation: fadeIn;
+  animation-duration: 3.5s;
 }
 
 hr {
@@ -27,15 +29,17 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 30px;
+  height: 80vh;
+
+  flex-wrap: wrap;
 }
 
 #container {
   display: grid;
   grid-template-columns: repeat(var(--columns-row), 1fr);
   grid-template-rows: repeat(var(--columns-row), 1fr);
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   background-color: lightgray;
   transition: background-color 1s linear;
   gap: 1px;
