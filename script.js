@@ -20,10 +20,6 @@ let random_bg_color = () => {
   return bgColor;
 };
 
-let hoverColor = () => {
-  this.style.backgroundColor = random_bg_color();
-};
-
 // this removes all previous child nodes as to not cause overload
 //fixed overlapping divs error !!!!!! :D
 function gridMaker() {
@@ -43,9 +39,9 @@ function gridMaker() {
     createDiv.classList.add("cell"); // add class name
     container.appendChild(createDiv); // attach cells under container
     createDiv.style.background = "white";
-    createDiv.style.opacity = "1";
+
     createDiv.addEventListener("mouseenter", function () {
-      this.style.backgroundColor = "black";
+      this.style.backgroundColor = "rgba(0, 0, 0, 1)";
     });
   }
 
@@ -61,12 +57,8 @@ function gridMaker() {
 let rainbow = () => {
   let children = container.childNodes; // creates an array of all "cell" boxes within the grid container
   for (i = 0; i < children.length; i++) {
-    var tableChild = children[i]; // go through each cell
-
-    tableChild.removeEventListener;
-
+    let tableChild = children[i]; // go through each cell
     tableChild.addEventListener("mouseenter", function () {
-      //add hover listener to change to specific color
       this.style.backgroundColor = random_bg_color();
     });
   }
@@ -90,7 +82,10 @@ let opacityHover = () => {
     var tableChild = children[i];
     // set an opacity value so you can change in eventlistener
     tableChild.addEventListener("mouseenter", function () {
-      this.style.opacity = this.style.opacity - ".1";
+      this.style.backgroundColor = "rgba(1,1,1,0.3)".replace(
+        /[^,]+(?=\))/,
+        "0.5"
+      );
     });
   }
 };
@@ -138,4 +133,6 @@ pickr.on("change", (color, instance) => {
   rgbSelector(rgbaColor);
 });
 
-gridMaker();
+window.addEventListener("DOMContentLoaded", (event) => {
+  gridMaker();
+});
