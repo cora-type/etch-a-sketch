@@ -36,8 +36,9 @@ hr {
   grid-template-rows: repeat(var(--columns-row), 1fr);
   width: 600px;
   height: 600px;
-  background-color: transparent;
-  gap: 2px;
+  background-color: lightgray;
+  transition: background-color 1s linear;
+  gap: 1px;
   border: 1px solid lightgray;
   border-radius: 5px;
 }
@@ -47,4 +48,8 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#container:hover {
+  background-color: transparent;
 }
