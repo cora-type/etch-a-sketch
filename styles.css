@@ -10,7 +10,7 @@
   color: rgb(0, 0, 0);
   align-items: center;
   animation: fadeIn;
-  animation-duration: 3.5s;
+  animation-duration: 4s;
 }
 
 hr {
@@ -42,9 +42,11 @@ hr {
   height: 700px;
   background-color: lightgray;
   transition: background-color 1s linear;
+  transition: gap 1s;
   gap: 1px;
   border: 1px solid lightgray;
   border-radius: 5px;
+  animation-duration: 2s;
 }
 
 .secondaryContainer {
@@ -56,4 +58,10 @@ hr {
 
 #container:hover {
   background-color: transparent;
+  gap: 0px;
+}
+
+hr {
+  animation: fadeInLeft;
+  animation-duration: 2s;
 }

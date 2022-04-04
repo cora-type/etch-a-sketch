@@ -40,6 +40,7 @@ function gridMaker() {
     container.appendChild(createDiv); // attach cells under container
     createDiv.style.background = "white";
     createDiv.style.opacity = "1";
+
     createDiv.addEventListener("mouseenter", function () {
       this.style.backgroundColor = "black";
       this.style.opacity = "1";
@@ -148,9 +149,6 @@ pickr.on("change", (color, instance) => {
 // initial grid to load with fade in animation
 // initial grid to load with fade in animation
 // initial grid to load with fade in animation
-
-let drawing = false;
-
 function gridMaker2() {
   if (container.firstChild) {
     removeAllChildNodes(containerQuery);
@@ -166,21 +164,9 @@ function gridMaker2() {
     container.appendChild(createDiv);
     createDiv.style.background = "white";
     createDiv.style.opacity = "1";
-    createDiv.addEventListener("mousedown", function () {
+    createDiv.addEventListener("mouseenter", function () {
       this.style.backgroundColor = "black";
       this.style.opacity = "1";
-      drawing = true;
-    });
-    createDiv.addEventListener("mouseover", function () {
-      if (drawing === true) {
-        this.style.backgroundColor = "black";
-        this.style.opacity = "1";
-      }
-    });
-    createDiv.addEventListener("mouseup", (g) => {
-      if (drawing === true) {
-        drawing = false;
-      }
     });
   }
   container.classList.add("animate__animated", "animate__fadeInLeft");
