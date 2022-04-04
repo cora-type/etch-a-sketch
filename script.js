@@ -78,15 +78,24 @@ let rgbSelector = (input) => {
   }
 };
 
+// function for making cells opaque
+
 let opacityHover = () => {
   let children = container.childNodes;
   for (i = 0; i < children.length; i++) {
-    var tableChild = children[i];
-    let x = tableChild.style.opacity;
-    // set an opacity value so you can change in eventlistener
+    var tableChild = children[i]; // for each cell in the grid
+    let currentOpacity = tableChild.style.opacity; // let this = to the current opacity
+    let currentColor = tableChild.style.backgroundColor; // let this be the current color
     tableChild.addEventListener("mouseenter", function () {
-      x = x - 0.1;
-      this.style.opacity = x;
+      if (currentOpacity >= 0.1) {
+        // this makes sure opacity does not go below 0, not really necessary but w/e
+        currentOpacity = currentOpacity - 0.1; // make color .1 shades more transparent
+        this.style.opacity = currentOpacity; // set the opacity to the lower value on hover
+        this.style.backgroundColor = currentColor; // make sure the background color stays the same color to prevent refilling
+      } else {
+        this.style.opacity = currentOpacity;
+        this.style.backgroundColor = currentColor;
+      }
     });
   }
 };
