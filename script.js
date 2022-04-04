@@ -84,11 +84,42 @@ let opacityHover = () => {
     tableChild.addEventListener("mouseenter", function () {
       this.style.backgroundColor = "rgba(1,1,1,0.3)".replace(
         /[^,]+(?=\))/,
-        "0.5"
+        ".2"
       );
     });
   }
 };
+
+function updateColor(elements, change) {
+  // Make sure elements is always an Array, so that you can call the
+  // function with either an Array of elements or a single one (without
+  // having to wrap it in an Array yourself.
+
+  // Process all elements:
+
+  elements.forEach((element) => {
+    // Get the current background-color value:
+    const value =
+      getComputedStyle(element).getPropertyValue("background-color");
+
+    // Get all color components (alpha may not be there if = 1):
+    const parts = value.match(/[\d.]+/g);
+
+    // If alpha is not there, add it:
+    if (parts.length === 3) {
+      parts.push(1);
+    }
+
+    // Modify alpha:
+    parts[3] = Math.min(1, Math.max(0, parseFloat(parts[3]) + change));
+
+    // Set the element's text to be the current alpha value (just for the example):
+    element.innerText = parts[3].toFixed(2);
+
+    // Apply new value:
+    element.style.backgroundColor = `rgba(${parts.join(",")})`;
+  });
+}
 
 //PICKR STUFF BELOW HERE
 
