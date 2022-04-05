@@ -13,6 +13,14 @@
   animation-duration: 4s;
 }
 
+.psst {
+  font-size: 10px;
+  animation-iteration-count: 3;
+  animation: swing;
+  animation-duration: 1s;
+  animation-iteration-count: 10;
+  animation-delay: 2s;
+}
 hr {
   height: 2px;
   background-color: black;
