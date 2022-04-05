@@ -29,23 +29,30 @@
     <div class="header">etch a sketch</div>
     <div class="main">
       <div id="container"></div>
+      <div id="sliderContainer">
+        <span id="value"></span>
+        <input
+          id="slider"
+          type="range"
+          min="0"
+          max="100"
+          value="24"
+          oninput="gridMaker()"
+        />
+        <button onclick="rainbow()" class="rainbow" type="button">
+          TASTE THE RAINBOW
+        </button>
+        <button onclick="opacityHover()" class="opaque" type="button">
+          OPAQUE ME
+        </button>
 
-      <input
-        id="slider"
-        type="range"
-        min="0"
-        max="100"
-        value="24"
-        oninput="gridMaker()"
-      />
-      <span id="value"></span>
-      <button onclick="rainbow()" class="rainbow" type="button">
-        TASTE THE RAINBOW
-      </button>
-      <button onclick="opacityHover()" class="opaque" type="button">
-        OPAQUE ME
-      </button>
-      <div class="color-picker"></div>
+        <div class="color-picker"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <button class="button--surtur" type="button"></button>
+      <div class="github"></div>
+      <div class="twitter"></div>
     </div>
   </body>
 </html>

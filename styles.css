@@ -16,6 +16,8 @@
 hr {
   height: 2px;
   background-color: black;
+  animation: fadeInLeft;
+  animation-duration: 2s;
 }
 
 /* grid css below */
@@ -49,21 +51,22 @@ hr {
   animation-duration: 2s;
 }
 
-.secondaryContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 #container:hover {
   background-color: transparent;
   gap: 0px;
 }
 
-hr {
-  animation: fadeInLeft;
-  animation-duration: 2s;
+/* minimal slider css*/
+
+#sliderContainer {
+  border: 1px solid black;
+  text-align: center;
+  font-size: 40px;
+  font-family: "CodeNext";
+}
+
+#slider {
+  margin: 20px;
 }
 
 body {
@@ -119,44 +122,3 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 /* minimal slider css*/
-
-a {
-  text-decoration: none;
-  color: #fff;
-}
-.rainbow {
-  width: calc(20vw + 6px);
-  height: calc(8vw + 6px);
-  background-image: linear-gradient(
-    90deg,
-    #00c0ff 0%,
-    #ffcf00 49%,
-    #fc4f4f 80%,
-    #00c0ff 100%
-  );
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-transform: uppercase;
-  font-size: 3vw;
-  font-weight: bold;
-}
-.rainbow:after {
-  content: attr(alt);
-  width: 20vw;
-  height: 8vw;
-  background-color: #191919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.rainbow:hover {
-  animation: slidebg 2s linear infinite;
-}
-
-@keyframes slidebg {
-  to {
-    background-position: 20vw;
-  }
-}
