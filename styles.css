@@ -26,7 +26,6 @@ hr {
   --columns-row: 2;
 }
 
-/* container for grid */
 .main {
   display: flex;
   align-items: center;
@@ -54,6 +53,14 @@ hr {
 #container:hover {
   background-color: transparent;
   gap: 0px;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeInUp;
+  animation-duration: 2s;
 }
 
 /* minimal slider css*/
@@ -121,4 +128,208 @@ input[type="range"]::-webkit-slider-thumb:active {
   transform: scale(1);
 }
 
-/* minimal slider css*/
+/* surtur eye CSS */
+/* Made with the help of codrops' ButtonHoverStyles on GitHub
+https://github.com/codrops/ButtonHoverStyles */
+
+@keyframes rotateIt {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.button {
+  pointer-events: auto;
+  cursor: pointer;
+  background: #e7e7e7;
+  border: none;
+  padding: 1.5rem 3rem;
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes rotateIt {
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Made with the help of Amelia Bellamy-Royds' article "Perfecting Paths for <textPath>": 
+https://oreillymedia.github.io/Using_SVG/extras/ch07-textpaths.html */
+
+.button--surtur {
+  padding: 0;
+  background: none;
+  -webkit-clip-path: circle(40% at 50% 50%);
+  clip-path: circle(40% at 50% 50%);
+}
+
+.button--surtur:focus-visible {
+  background: #443ffc;
+}
+
+.textcircle {
+  position: relative;
+  display: block;
+  width: 200px;
+}
+
+.textcircle text {
+  font-size: 32px;
+  text-transform: uppercase;
+  fill: #000;
+}
+
+.textcircle textPath {
+  letter-spacing: 17px; /* Firefox needs this */
+}
+
+.button--surtur:hover .textcircle {
+  animation: rotateIt 7s linear infinite;
+}
+
+.eye {
+  position: absolute;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  top: calc(50% - 30px);
+  left: calc(50% - 30px);
+}
+
+.eye__outer,
+.eye__inner,
+.eye__lashes-up,
+.eye__lashes-down {
+  stroke: #000;
+  fill: none;
+  stroke-width: 1.5px;
+}
+
+.eye__lashes-down {
+  opacity: 0;
+}
+
+.button--surtur:hover .eye__lashes-up,
+.button--surtur:hover .eye__inner,
+.button--surtur:hover .eye__iris {
+  animation: blinkHide 2s step-end infinite;
+}
+
+.button--surtur:hover .eye__lashes-down {
+  animation: blinkShow 2s step-end infinite;
+}
+
+@keyframes blinkHide {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+}
+
+@keyframes blinkShow {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+}
+
+/*
+    Author: Abdelrhman
+*/
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-family: "CodeNext";
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #ffffff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before {
+  background: #cd201f;
+  color: #ffffff;
+}
