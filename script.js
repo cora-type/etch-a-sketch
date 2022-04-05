@@ -11,7 +11,7 @@ function removeAllChildNodes(parent) {
   }
 }
 
-//function to generate RGB
+//function to generate RGB for rainbow button
 let random_bg_color = () => {
   let x = Math.floor(Math.random() * 256);
   let y = Math.floor(Math.random() * 256);
@@ -20,15 +20,15 @@ let random_bg_color = () => {
   return bgColor;
 };
 
-// this removes all previous child nodes as to not cause overload
-//fixed overlapping divs error !!!!!! :D
 function gridMaker() {
+  // this removes all previous child nodes as to not cause overload
+  //fixed overlapping divs error !!!!!! :D
   if (container.firstChild) {
     removeAllChildNodes(containerQuery);
   }
 
   document.getElementById("value").innerText = theSlider.value; //update value shown in HTML
-  let sliderValue = theSlider.value;
+  let sliderValue = theSlider.value; // grab and store slider value
 
   let squared = sliderValue * sliderValue; // # of boxes in the grid
 
@@ -38,12 +38,13 @@ function gridMaker() {
     var createDiv = document.createElement("div");
     createDiv.classList.add("cell"); // add class name
     container.appendChild(createDiv); // attach cells under container
-    createDiv.style.background = "white";
-    createDiv.style.opacity = "1";
+    createDiv.style.background = "white"; // set their color to white
+    createDiv.style.opacity = "1"; // make them opaque
 
     createDiv.addEventListener("mouseenter", function () {
+      //start filling in/changing color on hover
       this.style.backgroundColor = "black";
-      this.style.opacity = "1";
+      this.style.opacity = "1"; // make opaque in case transparent
     });
   }
 
@@ -61,7 +62,7 @@ let rainbow = () => {
   for (i = 0; i < children.length; i++) {
     let tableChild = children[i]; // go through each cell
     tableChild.addEventListener("mouseenter", function () {
-      this.style.opacity = 1;
+      this.style.opacity = 1; // same as before
       this.style.backgroundColor = random_bg_color();
     });
   }
@@ -178,7 +179,13 @@ window.addEventListener("DOMContentLoaded", (event) => {
   gridMaker2();
 });
 
-let headerRainbow = () => {
-  let a = document.querySelector("body");
-  a.style.animation = "color-change 5s infinite";
-};
+var menuBoxes = document.getElementsByClassName("rainbow");
+for (var i = 0; i < menuBoxes.length; i++) {
+  menuBoxes[i].onmouseover = function (e) {
+    var color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    var colorString = "0px 0px 30px 0px " + color;
+    this.style["box-shadow"] = colorString;
+    this.style["-webkit-box-shadow"] = colorString;
+    this.style["-moz-box-shadow"] = colorString;
+  };
+}

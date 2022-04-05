@@ -27,8 +27,11 @@
   <body>
     <hr />
     <div class="header">etch a sketch</div>
+    <!-- holds both grid and modifications -->
     <div class="main">
+      <!-- holds the grid cells -->
       <div id="container"></div>
+      <!-- holds the modifications to the grid  -->
       <div id="sliderContainer">
         <span id="value"></span>
         <input
@@ -39,16 +42,18 @@
           value="24"
           oninput="gridMaker()"
         />
-        <button onclick="rainbow()" class="rainbow" type="button">
-          TASTE THE RAINBOW
-        </button>
-        <button onclick="opacityHover()" class="opaque" type="button">
-          OPAQUE ME
-        </button>
-
+        <div class="multi-button">
+          <button onclick="rainbow()" class="rainbow" type="button">
+            rainbow
+          </button>
+          <button onclick="opacityHover()" class="opaque" type="button">
+            !opaque
+          </button>
+        </div>
         <div class="color-picker"></div>
       </div>
     </div>
+    <!-- footer, add socials later -->
     <div class="footer">
       <button class="button button--surtur">
         <svg class="textcircle" viewBox="0 0 500 500">
@@ -65,7 +70,8 @@
               aria-label="Projects & client work 2020"
               textLength="900"
             >
-              designed &amp; created by shyrealm 2022
+              <!-- designed &amp; created by shyrealm 2022 -->
+              LIVE IN DAY DREAMS, I CHOOSE FICTION © 2022
             </textPath>
           </text>
         </svg>
@@ -93,21 +99,6 @@
           <circle class="eye__inner" cx="35" cy="35.31" r="10.041" />
         </svg>
       </button>
-
-      <ul class="wrapper">
-        <li class="icon twitter">
-          <span class="tooltip">Twitter</span>
-          <span><i class="fab fa-twitter"></i></span>
-        </li>
-        <li class="icon instagram">
-          <span class="tooltip">Instagram</span>
-          <span><i class="fab fa-instagram"></i></span>
-        </li>
-        <li class="icon github">
-          <span class="tooltip">Github</span>
-          <span><i class="fab fa-github"></i></span>
-        </li>
-      </ul>
     </div>
   </body>
 </html>
