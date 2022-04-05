@@ -129,7 +129,7 @@ input[type="range"]::-webkit-slider-thumb:active {
 }
 
 /* surtur eye CSS */
-/* Made with the help of codrops' ButtonHoverStyles on GitHub
+/* credit to codrops' ButtonHoverStyles on GitHub
 https://github.com/codrops/ButtonHoverStyles */
 
 @keyframes rotateIt {
@@ -173,7 +173,7 @@ https://oreillymedia.github.io/Using_SVG/extras/ch07-textpaths.html */
 .textcircle {
   position: relative;
   display: block;
-  width: 200px;
+  width: 140px;
 }
 
 .textcircle text {
